@@ -1,6 +1,6 @@
 import './globals.css';
 import Providers from './components/Providers';
-import MyAppBar from './components/AppBar';
+import Header from './components/Header'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body>
         <Providers>
-          <MyAppBar />
+          <Header/>
           {children}
         </Providers>
       </body>

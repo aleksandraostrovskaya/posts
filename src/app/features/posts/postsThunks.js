@@ -53,10 +53,10 @@ export const updatePost = createAsyncThunk(
 
 export const deletePost = createAsyncThunk(
   'posts/deletePost',
-  async (id, { rejectWithValue }) => {
+  async (postId, { rejectWithValue }) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
-      return id;
+      await axios.delete(`${API_URL}/${postId}`);
+      return { id: postId };
     } catch (error) {
       return rejectWithValue(error.message);
     }
