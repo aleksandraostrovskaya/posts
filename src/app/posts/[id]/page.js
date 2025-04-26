@@ -66,12 +66,12 @@ const PostPage = () => {
     <Container sx={{ mt: 4 }}>
       <Card sx={{ maxWidth: 800, margin: '0 auto' }}>
         <CardHeader
-          avatar={<Avatar>{post.title[0].toUpperCase()}</Avatar>}
-          title={post.title}
-          subheader={`ID: ${post.id}`}
+          avatar={<Avatar>{post?.title[0].toUpperCase()}</Avatar>}
+          title={post?.title}
+          subheader={`ID: ${post?.id}`}
         />
         <CardContent>
-          <Typography variant='body1'>{post.body}</Typography>
+          <Typography variant='body1'>{post?.body}</Typography>
         </CardContent>
 
         <CardActions sx={{ paddingX: 2, paddingBottom: 2 }}>
