@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CRUD Posts App
 
-## Getting Started
+A stylish, smooth CRUD application powered by Redux Toolkit and Next.js 14.  
+Built with a modern tech stack and a love for clean code.
 
-First, run the development server:
+## 🛠 Tech Stack
+
+- **Next.js 14** (App Router)
+- **React 18** (Hooks)
+- **Redux Toolkit** (store, slices, actions, selectors, async thunks)
+- **Material UI v5**
+- **JavaScript (ES6+)**
+- **Fake API:** [JSONPlaceholder](https://jsonplaceholder.typicode.com)
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/crud-posts-app.git
+```
+
+2. Navigate into the project directory:
+
+```bash
+cd posts
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```plaintext
+/src
+ ├── app/
+ │    ├── layout.js       # Main layout
+ │    └── page.js         # Home page
+ │
+ ├── features/
+ │    └── posts/
+ │         ├── postsSlice.js       # Redux slice for posts
+ │         ├── postsThunks.js      # Async thunks for API calls
+ │         ├── postsSelectors.js   # Selectors for posts state
+ │         └── PostsList.jsx       # Component to list all posts
+ │
+ ├── components/
+ │    ├── AppBar.jsx       # Top navigation bar with theme switch
+ │    ├── Drawer.jsx       # Left side navigation menu
+ │    ├── Hero.jsx         # Hero section for home page
+ │    ├── PostCard.jsx     # Card component for individual posts
+ │    ├── Header.jsx
+ │    └── Providers.js     # Theme and Redux providers
+ │    
+ ├── store/
+ │    └── store.js         # Redux store setup
+ │
+ ├── theme/
+ │    └── theme.js         # Light and dark Material UI themes
+ │
+ └── utils/
+      └── api.js           # API functions for fetching posts
+```
 
-## Learn More
+## 🧭 Pages Overview
 
-To learn more about Next.js, take a look at the following resources:
+### Home `/`
+- Hero section with a big title and two buttons:
+  - **View Posts** → `/posts`
+  - **Create Post** → `/posts/create`
+- AppBar with:
+  - Theme switcher (Light/Dark mode)
+  - Menu button to open Drawer
+- Drawer with navigation links:
+  - Home
+  - All Posts
+  - Create Post
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Posts List `/posts`
+- Search field (TextField + Search Icon) to filter posts by title.
+- Skeleton loaders while fetching posts.
+- Grid layout with Post Cards:
+  - Each card shows avatar, title, short body excerpt, and delete action.
+- SpeedDial for quick access to post creation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Post Details `/posts/[id]`
+- Full post content in a Card.
+- CircularProgress while loading.
+- CardHeader, CardContent, and CardActions:
+  - Delete button
+  - Back to list button
 
-## Deploy on Vercel
+### Create Post `/posts/create`
+- Multi-step form (Stepper):
+  - Step 1: Title input
+  - Step 2: Body input
+  - Step 3: Preview
+- Dialog for preview before final submission.
+- Snackbar confirmation after successful post creation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Full **CRUD** functionality for posts (Create, Read, Update, Delete) via Redux Toolkit and async thunks.
+- Fully **responsive** and **themeable** UI with Material UI.
+- Smooth **navigation** with App Router and persistent layout (AppBar + Drawer).
+- Clean and **well-organized codebase**.
+
+## 🔥 Recommendations for Future Improvements
+
+- **Add unit tests** with Jest and React Testing Library.
+- **Migrate to RTK Query** for simpler API management.
+- **Enhance responsiveness** for mobile and tablet screens.
+- **Improve UX**:
+  - Add spinners/loaders for all async actions.
+  - Handle API errors gracefully with user-friendly messages.
+  - Add confirmation dialogs (e.g., when deleting a post).
+
+---
+
+
